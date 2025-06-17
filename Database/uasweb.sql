@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2025 at 07:05 AM
+-- Generation Time: Jun 17, 2025 at 03:28 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `uassim23`
+-- Database: `uasweb`
 --
 
 -- --------------------------------------------------------
@@ -41,8 +41,8 @@ CREATE TABLE `detail_so` (
 --
 
 INSERT INTO `detail_so` (`iddetail`, `idso`, `idproduk`, `jumlah`, `subtotal`) VALUES
-(20, 13, 8, 2, '50000000.00'),
-(21, 14, 8, 1, '25000000.00');
+(22, 13, 8, 2, '60000000.00'),
+(23, 14, 8, 1, '9000000.00');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`idpelanggan`, `nama`, `alamat`, `no_telp`) VALUES
-(7, 'Paduy', 'Taman elang', '081285999825');
+(7, 'Romdah', 'Kp cacere', '0812654443');
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,13 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`idproduk`, `kode_produk`, `nama_produk`, `harga`, `stok`) VALUES
-(8, 'BRG01', 'HP SAMSUNGG', '30000000.00', 1);
+(8, 'IP13S', 'IPHONE 13 ', '9000000.00', 20),
+(9, 'SMSNG55', 'SAMSUNG A55 5G', '6500000.00', 15),
+(10, 'TVS01', 'TV LCD LENOVO PRO', '3000000.00', 10),
+(11, 'LTP001', ' SLIM LENOVO', '9000000.00', 26),
+(12, 'CRS001', 'KIPAS ANGIN PORTABLE', '250000.00', 50),
+(13, 'IP15001', 'IPHONE 15 PRO', '16000000.00', 18),
+(14, 'XIOM002', 'XIOMI PRO SERIES ', '8000000.00', 100);
 
 -- --------------------------------------------------------
 
@@ -101,8 +107,11 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`idsales`, `nama_sales`) VALUES
-(6, 'Fadel'),
-(7, 'Pipah');
+(6, 'Siti Romdah'),
+(7, 'Rohimah'),
+(8, 'dian saputra'),
+(9, 'sastri widia '),
+(10, 'loly cantik');
 
 -- --------------------------------------------------------
 
@@ -125,8 +134,8 @@ CREATE TABLE `salesorder` (
 --
 
 INSERT INTO `salesorder` (`idso`, `kode_so`, `tanggal`, `idpelanggan`, `idsales`, `status`, `total_harga`) VALUES
-(13, 'PO001', '2025-06-07', 7, 6, 'selesai', '50000000.00'),
-(14, 'PO002', '2025-06-08', 7, 6, 'dikirim', '25000000.00');
+(13, 'B0001', '2025-06-07', 7, 7, NULL, '60000000.00'),
+(14, 'PO002', '2025-06-14', 7, 6, NULL, '9000000.00');
 
 -- --------------------------------------------------------
 
@@ -170,9 +179,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `nama`, `username`, `password`, `role`) VALUES
 (1, '', 'admin', '$2y$10$XTOXDQPuuCFB/WW2.ULMle7Y7YVDCpnisjBaWWea.SSWSfiJE/zUK', 'admin'),
 (2, '', 'sales', '$2y$10$V.KKGoePUiBzMon8rt6SRuVTGO7xvLiAgE5Jn8LQ1OT0FTfAdNYcy', 'sales'),
-(7, '', 'fadel', '$2y$10$hWC2/DeIw9k8C/0aegiji.7MXIyYjVszPVSdOF3tDkQVhhDWZVo7C', 'manager'),
-(8, '', 'manager', '$2y$10$DGpTlak1G58MRv.AaEWdGO/oRPWNQzGX3sVQ3ZQq7.4eVHjCI7T9K', 'manager'),
-(9, '', 'pipah', '$2y$10$kKnijkZb.htOKJUreSsQWeLZVm90S816wLAqLOp.FtGDa0nvcpJOa', 'admin');
+(8, '', 'manager', '$2y$10$DGpTlak1G58MRv.AaEWdGO/oRPWNQzGX3sVQ3ZQq7.4eVHjCI7T9K', 'manager');
 
 --
 -- Indexes for dumped tables
@@ -234,7 +241,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `detail_so`
 --
 ALTER TABLE `detail_so`
-  MODIFY `iddetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `iddetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
@@ -246,13 +253,13 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `idproduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idproduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `idsales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idsales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `salesorder`
@@ -270,7 +277,7 @@ ALTER TABLE `status_order`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
